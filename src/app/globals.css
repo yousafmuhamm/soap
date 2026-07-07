@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Locked palette from master plan §2 — mirrored as CSS vars for raw CSS usage. */
+:root {
+  --color-primary: #f5c400;
+  --color-primary-2: #fff8e1;
+  --color-bg: #ffffff;
+  --color-ink: #111111;
+  --color-muted: #6b6b6b;
+  --color-line: rgba(17, 17, 17, 0.1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+  }
+
+  /* Pale-yellow selection (§2). */
+  ::selection {
+    background-color: var(--color-primary-2);
+    color: var(--color-ink);
+  }
+
+  /* Visible 2px ink focus outline for keyboard users (§4.3 a11y floor). */
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 2px;
+  }
+
+  /* Tiny uppercase editorial label — YSL-style nav/section labels. */
+  .label {
+    font-size: 0.6875rem; /* 11px */
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+}
+
+/* Honor prefers-reduced-motion: kill all animation/transition/scroll motion. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
