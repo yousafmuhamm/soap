@@ -1,5 +1,6 @@
 import Image from "next/image";
 import FadeUp from "./FadeUp";
+import { blurFor } from "@/lib/blur";
 
 const STEPS = [
   {
@@ -29,10 +30,12 @@ export default function CraftBand() {
       <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-stretch md:grid-cols-2">
         <div className="relative aspect-[4/3] w-full md:aspect-auto md:min-h-[560px]">
           <Image
-            src="/images/craft.svg"
-            alt="Bars of soap curing on a wooden rack"
+            src="/images/craft.jpg"
+            alt="Ground botanicals and salt in ceramic bowls on a marble surface"
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
+            placeholder="blur"
+            blurDataURL={blurFor("/images/craft.jpg")}
             className="object-cover"
           />
         </div>

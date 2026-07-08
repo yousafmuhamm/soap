@@ -3,7 +3,8 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { SITE } from "@/lib/site";
+import JsonLd from "@/components/JsonLd";
+import { SITE, SOCIALS } from "@/lib/site";
 
 // Display serif for headlines (§2), 500 weight. UI/body grotesque (§2).
 const cormorant = Cormorant_Garamond({
@@ -33,7 +34,26 @@ export const metadata: Metadata = {
     title: SITE.name,
     description: SITE.description,
     url: SITE.url,
+    images: [{ url: "/og.svg", width: 1200, height: 630, alt: SITE.name }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE.name,
+    description: SITE.description,
+    images: ["/og.svg"],
+  },
+  alternates: { canonical: "/" },
+};
+
+const organizationLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: SITE.name,
+  description: SITE.description,
+  url: SITE.url,
+  logo: `${SITE.url}/logo.svg`,
+  email: SITE.email,
+  sameAs: SOCIALS.map((s) => s.href),
 };
 
 export default function RootLayout({
@@ -42,6 +62,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
       <body className="font-sans antialiased">
+        <JsonLd data={organizationLd} />
         <Header />
         <main id="main">{children}</main>
         <Footer />

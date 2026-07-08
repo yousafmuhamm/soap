@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import FadeUp from "./FadeUp";
+import { blurFor } from "@/lib/blur";
 
 /**
  * Full-bleed hero: a single still-life image filling the viewport, headline
@@ -12,11 +13,13 @@ export default function Hero() {
     <section className="relative h-svh w-full overflow-hidden bg-primary-2">
       <div className="absolute inset-0 motion-safe:animate-kenburns">
         <Image
-          src="/images/hero.svg"
-          alt="A single bar of soap resting on warm stone"
+          src="/images/hero.jpg"
+          alt="Handmade soap bars wrapped in twine, resting on wood beside dried lavender"
           fill
           priority
           sizes="100vw"
+          placeholder="blur"
+          blurDataURL={blurFor("/images/hero.jpg")}
           className="object-cover"
         />
       </div>

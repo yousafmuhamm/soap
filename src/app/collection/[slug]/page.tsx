@@ -6,6 +6,8 @@ import ProductGallery from "@/components/ProductGallery";
 import Accordion from "@/components/Accordion";
 import ProductCard from "@/components/ProductCard";
 import FadeUp from "@/components/FadeUp";
+import JsonLd from "@/components/JsonLd";
+import { SITE } from "@/lib/site";
 import {
   PRODUCTS,
   formatPrice,
@@ -72,8 +74,27 @@ export default async function ProductPage({
     { title: "Provenance & Curing", content: <p>{product.provenance}</p> },
   ];
 
+  const productLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.summary,
+    image: `${SITE.url}${product.images[0].src}`,
+    brand: { "@type": "Brand", name: SITE.name },
+    category: scentName(product.scentFamily),
+    offers: {
+      "@type": "Offer",
+      price: product.price,
+      priceCurrency: "CAD",
+      // Brochure site: sold via stockists, not online (§4.1 D3).
+      availability: "https://schema.org/InStoreOnly",
+      url: `${SITE.url}/collection/${product.slug}`,
+    },
+  };
+
   return (
     <div className="mx-auto max-w-[1400px] px-5 pb-24 pt-28 md:px-10 md:pb-32 md:pt-36">
+      <JsonLd data={productLd} />
       <Breadcrumb
         items={[
           { label: "Home", href: "/" },

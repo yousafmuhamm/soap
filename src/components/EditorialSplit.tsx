@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import FadeUp from "./FadeUp";
+import { blurFor } from "@/lib/blur";
 
 /**
  * Editorial split: a 50/50 image and text block that carries the reader toward
@@ -12,10 +13,12 @@ export default function EditorialSplit() {
       <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-20">
         <FadeUp className="relative aspect-[4/5] w-full overflow-hidden bg-primary-2">
           <Image
-            src="/images/editorial.svg"
-            alt="A pair of hands working soap into a lather over a basin"
+            src="/images/editorial.jpg"
+            alt="Two handmade soap bars tied with twine on a pale stone surface"
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
+            placeholder="blur"
+            blurDataURL={blurFor("/images/editorial.jpg")}
             className="object-cover"
           />
         </FadeUp>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { ProductImage } from "@/lib/products";
+import { blurFor } from "@/lib/blur";
 
 /**
  * Product image column: 2–3 images stacked vertically. On desktop the reader
@@ -26,6 +27,8 @@ export default function ProductGallery({
             fill
             priority={i === 0}
             sizes="(max-width: 768px) 100vw, 50vw"
+            placeholder="blur"
+            blurDataURL={blurFor(img.src)}
             className="object-cover"
           />
         </div>

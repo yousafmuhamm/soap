@@ -70,8 +70,8 @@ export const PRODUCTS: ReadonlyArray<Product> = [
     provenance:
       "Made in small batches, cold-pressed, and cured sixty days before it leaves the workshop.",
     images: [
-      { src: "/images/products/lemon-verbena-1.svg", alt: "Lemon Verbena soap bar on a pale stone surface" },
-      { src: "/images/products/lemon-verbena-2.svg", alt: "Lemon Verbena soap bar shown from the side" },
+      { src: "/images/products/lemon-verbena-1.jpg", alt: "Fresh lemons in a white bowl" },
+      { src: "/images/products/lemon-verbena-2.jpg", alt: "A stack of three handmade soap bars on marble" },
     ],
     featured: true,
   },
@@ -99,8 +99,8 @@ export const PRODUCTS: ReadonlyArray<Product> = [
     provenance:
       "Cold-pressed in small batches and cured for sixty days on open racks.",
     images: [
-      { src: "/images/products/bergamot-rosemary-1.svg", alt: "Bergamot and Rosemary soap bar on stone" },
-      { src: "/images/products/bergamot-rosemary-2.svg", alt: "Bergamot and Rosemary soap bar, angled view" },
+      { src: "/images/products/bergamot-rosemary-1.jpg", alt: "Fresh lemons in a white bowl" },
+      { src: "/images/products/bergamot-rosemary-2.jpg", alt: "Two handmade soap bars tied with twine on stone" },
     ],
     featured: true,
   },
@@ -128,8 +128,8 @@ export const PRODUCTS: ReadonlyArray<Product> = [
     provenance:
       "Small-batch, cold-pressed, cured sixty days before dispatch.",
     images: [
-      { src: "/images/products/grapefruit-mint-1.svg", alt: "Grapefruit and Mint soap bar on a light surface" },
-      { src: "/images/products/grapefruit-mint-2.svg", alt: "Grapefruit and Mint soap bar close up" },
+      { src: "/images/products/grapefruit-mint-1.jpg", alt: "Fresh lemons in a white bowl" },
+      { src: "/images/products/grapefruit-mint-2.jpg", alt: "Handmade soap bars with dried lavender on wood" },
     ],
   },
   {
@@ -156,8 +156,8 @@ export const PRODUCTS: ReadonlyArray<Product> = [
     provenance:
       "Cold-pressed, hand-cut, and cured sixty days on open racks.",
     images: [
-      { src: "/images/products/cedar-amber-1.svg", alt: "Cedar and Amber soap bar on dark stone" },
-      { src: "/images/products/cedar-amber-2.svg", alt: "Cedar and Amber soap bar, side view" },
+      { src: "/images/products/cedar-amber-1.jpg", alt: "A stack of three handmade soap bars on marble" },
+      { src: "/images/products/cedar-amber-2.jpg", alt: "Two handmade soap bars tied with twine on stone" },
     ],
     featured: true,
   },
@@ -185,8 +185,8 @@ export const PRODUCTS: ReadonlyArray<Product> = [
     provenance:
       "Made in small batches, cold-pressed, cured for sixty days.",
     images: [
-      { src: "/images/products/vetiver-smoke-1.svg", alt: "Vetiver Smoke soap bar on stone" },
-      { src: "/images/products/vetiver-smoke-2.svg", alt: "Vetiver Smoke soap bar close up" },
+      { src: "/images/products/vetiver-smoke-1.jpg", alt: "A stack of three handmade soap bars on marble" },
+      { src: "/images/products/vetiver-smoke-2.jpg", alt: "Ground botanicals and salt in ceramic bowls" },
     ],
   },
   {
@@ -213,8 +213,8 @@ export const PRODUCTS: ReadonlyArray<Product> = [
     provenance:
       "Cold-pressed, hand-cut, cured sixty days on open racks.",
     images: [
-      { src: "/images/products/black-fir-1.svg", alt: "Black Fir soap bar on a dark surface" },
-      { src: "/images/products/black-fir-2.svg", alt: "Black Fir soap bar, angled" },
+      { src: "/images/products/black-fir-1.jpg", alt: "Two handmade soap bars tied with twine on stone" },
+      { src: "/images/products/black-fir-2.jpg", alt: "A stack of three handmade soap bars on marble" },
     ],
   },
   {
@@ -241,8 +241,8 @@ export const PRODUCTS: ReadonlyArray<Product> = [
     provenance:
       "Cold-pressed, unscented, cured sixty days before it leaves the workshop.",
     images: [
-      { src: "/images/products/oat-milk-1.svg", alt: "Oat and Milk soap bar on a pale surface" },
-      { src: "/images/products/oat-milk-2.svg", alt: "Oat and Milk soap bar close up showing oat flecks" },
+      { src: "/images/products/oat-milk-1.jpg", alt: "Handmade soap bars with dried lavender on wood" },
+      { src: "/images/products/oat-milk-2.jpg", alt: "Two handmade soap bars tied with twine on stone" },
     ],
     featured: true,
   },
@@ -270,8 +270,8 @@ export const PRODUCTS: ReadonlyArray<Product> = [
     provenance:
       "Small-batch, cold-pressed, cured sixty days on open racks.",
     images: [
-      { src: "/images/products/honey-shea-1.svg", alt: "Honey and Shea soap bar on stone" },
-      { src: "/images/products/honey-shea-2.svg", alt: "Honey and Shea soap bar, side view" },
+      { src: "/images/products/honey-shea-1.jpg", alt: "Handmade soap bars with dried lavender on wood" },
+      { src: "/images/products/honey-shea-2.jpg", alt: "A stack of three handmade soap bars on marble" },
     ],
   },
 ];

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import FadeUp from "@/components/FadeUp";
+import { blurFor } from "@/lib/blur";
 
 export const metadata: Metadata = {
   title: "About",
@@ -54,11 +55,13 @@ export default function AboutPage() {
       {/* Full-bleed image band */}
       <section className="relative h-[60svh] w-full overflow-hidden bg-primary-2 md:h-[70svh]">
         <Image
-          src="/images/about-hero.svg"
-          alt="The workshop where the soap is made, lit by morning light"
+          src="/images/about-hero.jpg"
+          alt="A stack of three handmade soap bars on a marble surface"
           fill
           priority
           sizes="100vw"
+          placeholder="blur"
+          blurDataURL={blurFor("/images/about-hero.jpg")}
           className="object-cover"
         />
         <div
@@ -107,10 +110,12 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-20">
           <FadeUp className="relative aspect-[4/5] w-full overflow-hidden bg-primary-2">
             <Image
-              src="/images/about-portrait.svg"
-              alt="The founder at the workbench, cutting a block of cured soap"
+              src="/images/about-portrait.jpg"
+              alt="Two handmade soap bars tied with twine, resting on stone"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
+              placeholder="blur"
+              blurDataURL={blurFor("/images/about-portrait.jpg")}
               className="object-cover"
             />
           </FadeUp>

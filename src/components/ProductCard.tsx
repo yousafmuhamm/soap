@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { formatPrice, scentName, type Product } from "@/lib/products";
+import { blurFor } from "@/lib/blur";
 
 interface ProductCardProps {
   product: Product;
@@ -35,6 +36,8 @@ export default function ProductCard({
           fill
           sizes={sizes}
           priority={priority}
+          placeholder="blur"
+          blurDataURL={blurFor(primary.src)}
           className="object-cover transition-opacity duration-500 ease-out group-hover:opacity-0"
         />
         {secondary && (
@@ -44,6 +47,8 @@ export default function ProductCard({
             aria-hidden
             fill
             sizes={sizes}
+            placeholder="blur"
+            blurDataURL={blurFor(secondary.src)}
             className="object-cover opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
           />
         )}
