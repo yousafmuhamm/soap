@@ -3,48 +3,49 @@ import Image from "next/image";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import FadeUp from "@/components/FadeUp";
+import { PRODUCT } from "@/lib/products";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "Our House",
   description:
-    "How SAVON came to be, how the soap is made — saponification and a sixty-day cure — and the choices behind it: palm-free, plastic-free, cold process.",
+    "The story of Yeong Won — Fountain of Youth. Why we make one soap, how it is formulated, and the standards behind every 70 g bar.",
 };
+
+const PILLARS = [
+  {
+    title: "One product",
+    body: "We do not make a range. Every hour of formulation, testing and refinement goes into a single bar — so the bar has to earn it.",
+  },
+  {
+    title: "Treatment-grade actives",
+    body: "Niacinamide, snail secretion filtrate, plant stem cell culture extract, collagen — ingredients chosen from the serum shelf, not the soap aisle.",
+  },
+  {
+    title: "Honest claims",
+    body: "The carton says helps, supports, promotes — and means it. No miracle verbs, no before-and-after theatre. The skin decides.",
+  },
+];
 
 const TIMELINE = [
   {
     n: "01",
-    title: "Mix",
-    body: "Oils and a lye solution are combined at low heat. This is saponification — the reaction that turns oil into soap.",
+    title: "Formulate",
+    body: "The active complex — stem cell culture extract, snail filtrate, niacinamide and collagen — is blended into a palm-soap base with glycerin.",
   },
   {
     n: "02",
-    title: "Pour & set",
-    body: "The batch is poured into wooden moulds and left overnight to set into a solid block.",
+    title: "Fold",
+    body: "Oat kernel flour, milk proteins and aloe are folded through at low temperature to protect the actives.",
   },
   {
     n: "03",
-    title: "Cut & stamp",
-    body: "The block is cut into bars by hand and stamped. Each bar is weighed so the range stays consistent.",
+    title: "Press & cure",
+    body: "Each 70 g bar is pressed dense, then rested until the lather is slow and cream-like.",
   },
   {
     n: "04",
-    title: "Cure sixty days",
-    body: "Bars rest on open racks for two months. Water leaves, the bar hardens, and the scent settles.",
-  },
-];
-
-const SUSTAINABILITY = [
-  {
-    title: "Palm-free",
-    body: "We use olive, coconut, and shea in place of palm oil. No exceptions, no certified-sustainable caveats — simply none.",
-  },
-  {
-    title: "Plastic-free",
-    body: "Bars ship in a paper band and a recycled box. There is no film, no bottle, and nothing to throw away that will outlast you.",
-  },
-  {
-    title: "Cold process",
-    body: "Making soap cold rather than hot uses less energy and keeps the oils intact. It is slower. We think it is worth it.",
+    title: "Seal",
+    body: "Bars are sealed individually and boxed in coffrets of ten — a daily ritual, a month at a time.",
   },
 ];
 
@@ -54,49 +55,50 @@ export default function AboutPage() {
       {/* Full-bleed image band */}
       <section className="relative h-[60svh] w-full overflow-hidden bg-primary-2 md:h-[70svh]">
         <Image
-          src="/images/about-hero.svg"
-          alt="The workshop where the soap is made, lit by morning light"
+          src={PRODUCT.images.ingredients.src}
+          alt={PRODUCT.images.ingredients.alt}
           fill
           priority
           sizes="100vw"
           className="object-cover"
         />
         <div
-          className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/40 to-transparent"
+          className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/50 to-transparent"
           aria-hidden
         />
         <div className="absolute inset-x-0 bottom-0 px-5 pb-12 md:px-10 md:pb-16">
           <div className="mx-auto max-w-[1400px]">
             <Breadcrumb
-              items={[{ label: "Home", href: "/" }, { label: "About" }]}
+              items={[{ label: "Home", href: "/" }, { label: "Our House" }]}
             />
             <h1 className="mt-6 max-w-3xl font-display text-5xl leading-[1.05] text-white md:text-7xl">
-              A small workshop, one recipe at a time.
+              Yeong Won. Eternal, by intention.
             </h1>
           </div>
         </div>
       </section>
 
-      {/* Founder story — single text column */}
+      {/* House story — single text column */}
       <section className="mx-auto max-w-2xl px-5 py-24 md:py-32">
         <FadeUp>
           <p className="label mb-8 text-muted">The beginning</p>
           <div className="space-y-6 text-lg leading-relaxed text-ink/85">
             <p>
-              SAVON began on a stovetop, with a single pot and a recipe copied
-              from a library book. The first bars were uneven and smelled of
-              almost nothing. We kept the ones that worked and gave the rest
-              away.
+              Yeong Won — 영원 — is the Korean word for eternal. The house was
+              founded on a simple observation: people invest in serums and
+              creams, then undo the work with a cleanser that strips
+              everything it touches.
             </p>
             <p>
-              A decade on, the workshop is larger and the range has grown, but
-              the method has not changed. We still press oils cold, still pour by
-              hand, and still wait the full sixty days. Patience is the only
-              ingredient we cannot buy.
+              So we started where skincare actually starts. One bar, built
+              like a treatment — plant stem cell culture extract for
+              resilience, snail filtrate for repair, niacinamide for tone,
+              collagen for bounce, oat and milk so the cleanse itself stays
+              gentle.
             </p>
             <p>
-              We make soap for people who read labels — who would rather have a
-              short list of things they recognise than a long one they do not.
+              We make nothing else. When one product carries the name, the
+              name has to be earned every batch.
             </p>
           </div>
         </FadeUp>
@@ -107,8 +109,8 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-20">
           <FadeUp className="relative aspect-[4/5] w-full overflow-hidden bg-primary-2">
             <Image
-              src="/images/about-portrait.svg"
-              alt="The founder at the workbench, cutting a block of cured soap"
+              src={PRODUCT.images.portrait.src}
+              alt={PRODUCT.images.portrait.alt}
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
@@ -116,20 +118,20 @@ export default function AboutPage() {
           </FadeUp>
           <FadeUp index={1}>
             <p className="font-display text-3xl leading-snug md:text-4xl">
-              &ldquo;A good bar of soap should ask nothing of you but to use it,
-              and last longer than you expect.&rdquo;
+              &ldquo;The fountain of youth is not a place. It is a habit,
+              kept morning and evening.&rdquo;
             </p>
-            <p className="label mt-8 text-muted">The founder</p>
+            <p className="label mt-8 text-muted">The House of Yeong Won</p>
           </FadeUp>
         </div>
       </section>
 
-      {/* The process — numbered vertical timeline with hairline connectors */}
+      {/* The process — numbered vertical timeline */}
       <section className="mx-auto max-w-3xl px-5 pb-24 md:pb-32">
         <FadeUp>
           <p className="label mb-3 text-muted">The process</p>
           <h2 className="font-display text-4xl leading-tight md:text-5xl">
-            From oil to bar, in four steps.
+            From active to bar, in four steps.
           </h2>
         </FadeUp>
 
@@ -141,16 +143,12 @@ export default function AboutPage() {
               index={i}
               className="relative flex gap-8 pb-12 last:pb-0"
             >
-              {/* Hairline connector down the left edge, drawn between markers */}
               <div className="flex flex-col items-center">
-                <span className="font-display text-2xl leading-none text-ink">
+                <span className="font-display text-2xl leading-none text-primary">
                   {step.n}
                 </span>
                 {i < TIMELINE.length - 1 && (
-                  <span
-                    aria-hidden
-                    className="mt-4 w-px flex-1 bg-line"
-                  />
+                  <span aria-hidden className="mt-4 w-px flex-1 bg-line" />
                 )}
               </div>
               <div className="pb-2">
@@ -162,17 +160,17 @@ export default function AboutPage() {
         </ol>
       </section>
 
-      {/* Sustainability — three columns, in the single pale-yellow band */}
+      {/* Standards — three columns in the pale band */}
       <section className="bg-primary-2 px-5 py-24 md:px-10 md:py-32">
         <div className="mx-auto max-w-[1400px]">
           <FadeUp>
-            <p className="label mb-3 text-muted">What we leave out</p>
+            <p className="label mb-3 text-muted">What we stand on</p>
             <h2 className="max-w-2xl font-display text-4xl leading-tight md:text-5xl">
-              Restraint, as a rule.
+              Three rules, no exceptions.
             </h2>
           </FadeUp>
           <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-14">
-            {SUSTAINABILITY.map((col, i) => (
+            {PILLARS.map((col, i) => (
               <FadeUp
                 key={col.title}
                 index={i}
@@ -195,10 +193,10 @@ export default function AboutPage() {
             See what we make.
           </p>
           <Link
-            href="/collection"
+            href="/product"
             className="label border-b-2 border-primary pb-1 text-ink transition-opacity hover:opacity-60"
           >
-            View the collection
+            Explore {PRODUCT.name}
           </Link>
         </FadeUp>
       </section>

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import BrandLogo from "./BrandLogo";
 import { NAV, SITE } from "@/lib/site";
 
 interface MobileMenuProps {
@@ -30,8 +31,8 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
           aria-label="Menu"
         >
           <div className="flex h-16 items-center justify-between border-b border-line px-5">
-            <span className="font-display text-2xl leading-none tracking-tight">
-              {SITE.name}
+            <span aria-label={SITE.name} role="img" className="text-primary">
+              <BrandLogo className="[--brand-logo-height:2.5rem]" decorative />
             </span>
             <button
               type="button"

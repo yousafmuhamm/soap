@@ -4,8 +4,8 @@
 
 /* Locked palette from master plan §2 — mirrored as CSS vars for raw CSS usage. */
 :root {
-  --color-primary: #f5c400;
-  --color-primary-2: #fff8e1;
+  --color-primary: #c5922e;
+  --color-primary-2: #f7ead2;
   --color-bg: #ffffff;
   --color-ink: #111111;
   --color-muted: #6b6b6b;
@@ -43,6 +43,15 @@
     line-height: 1.2;
     text-transform: uppercase;
     letter-spacing: 0.2em;
+  }
+
+  .brand-logo {
+    aspect-ratio: 2334 / 1283;
+    display: inline-block;
+    height: var(--brand-logo-height, 2.5rem);
+    mask: url("/images/brand-logo.png") center / contain no-repeat;
+    width: calc(var(--brand-logo-height, 2.5rem) * 2334 / 1283);
+    -webkit-mask: url("/images/brand-logo.png") center / contain no-repeat;
   }
 }
 

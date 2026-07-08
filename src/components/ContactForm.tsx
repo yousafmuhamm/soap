@@ -4,7 +4,7 @@ import { useActionState, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { submitContact } from "@/app/contact/actions";
 import { CONTACT_INITIAL, type ContactState } from "@/app/contact/types";
-import { getProduct } from "@/lib/products";
+import { PRODUCT } from "@/lib/products";
 
 const SUBJECT_OPTIONS = [
   { value: "general", label: "General enquiry" },
@@ -23,7 +23,7 @@ export default function ContactForm() {
   const searchParams = useSearchParams();
   const productSlug = searchParams.get("product");
   const subjectParam = searchParams.get("subject");
-  const product = productSlug ? getProduct(productSlug) : undefined;
+  const product = productSlug === PRODUCT.slug ? PRODUCT : undefined;
 
   const defaultSubject = product
     ? "stockist"

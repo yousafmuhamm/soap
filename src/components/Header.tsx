@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import BrandLogo from "./BrandLogo";
 import MobileMenu from "./MobileMenu";
 import { NAV, SITE } from "@/lib/site";
 
@@ -34,6 +35,7 @@ export default function Header() {
   // Light text only while transparent over the home hero.
   const onDarkHero = hasHero && !solid;
   const textClass = onDarkHero ? "text-white" : "text-ink";
+  const logoClass = onDarkHero ? "text-white" : "text-primary";
 
   return (
     <>
@@ -77,10 +79,16 @@ export default function Header() {
           {/* Center: wordmark */}
           <Link
             href="/"
-            className="font-display text-2xl leading-none tracking-tight md:text-3xl"
+            className={[
+              "transition-colors duration-300 hover:opacity-80",
+              logoClass,
+            ].join(" ")}
             aria-label={`${SITE.name} — home`}
           >
-            {SITE.name}
+            <BrandLogo
+              className="[--brand-logo-height:2.5rem] md:[--brand-logo-height:3rem]"
+              decorative
+            />
           </Link>
 
           {/* Right: stockist link (desktop) / spacer (mobile) */}

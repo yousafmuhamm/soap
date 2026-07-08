@@ -1,22 +1,26 @@
 import Hero from "@/components/Hero";
 import BrandStatement from "@/components/BrandStatement";
-import FeaturedCollection from "@/components/FeaturedCollection";
-import CraftBand from "@/components/CraftBand";
+import BenefitTrio from "@/components/BenefitTrio";
+import ProductShowcase from "@/components/ProductShowcase";
+import ScienceGrid from "@/components/ScienceGrid";
+import RitualBand from "@/components/RitualBand";
 import EditorialSplit from "@/components/EditorialSplit";
 import CtaStrip from "@/components/CtaStrip";
 
 /**
- * Home page — six sections in the master-plan §3 order:
- * Hero → Brand statement → Featured collection → Craft band → Editorial split
- * → CTA strip. Each section reveals once on scroll via FadeUp.
+ * Home page — the single-product narrative, top to bottom:
+ * Hero (ambient video) → Brand statement → Benefits → Product showcase →
+ * Science grid → Ritual band → Editorial split → CTA strip.
  */
 export default function HomePage() {
   return (
     <>
       <Hero />
       <BrandStatement />
-      <FeaturedCollection />
-      <CraftBand />
+      <BenefitTrio />
+      <ProductShowcase />
+      <ScienceGrid />
+      <RitualBand />
       <EditorialSplit />
       <CtaStrip />
     </>

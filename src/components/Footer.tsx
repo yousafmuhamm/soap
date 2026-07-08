@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BrandLogo from "./BrandLogo";
 import NewsletterInput from "./NewsletterInput";
 import { FOOTER_NAV, SITE, SOCIALS } from "@/lib/site";
 
@@ -16,9 +17,9 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-10 md:grid-cols-4">
           {/* Column 1: brand + newsletter */}
           <div className="col-span-2 md:col-span-1">
-            <p className="font-display text-2xl leading-none tracking-tight">
-              {SITE.name}
-            </p>
+            <BrandLogo
+              className="[--brand-logo-height:3rem] text-primary"
+            />
             <p className="mt-4 max-w-xs text-sm text-muted">{SITE.tagline}</p>
             <div className="mt-8">
               <NewsletterInput />

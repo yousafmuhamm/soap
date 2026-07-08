@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import FadeUp from "./FadeUp";
+import { PRODUCT } from "@/lib/products";
 
 /**
  * Editorial split: a 50/50 image and text block that carries the reader toward
@@ -12,8 +13,8 @@ export default function EditorialSplit() {
       <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-20">
         <FadeUp className="relative aspect-[4/5] w-full overflow-hidden bg-primary-2">
           <Image
-            src="/images/editorial.svg"
-            alt="A pair of hands working soap into a lather over a basin"
+            src={PRODUCT.images.portrait.src}
+            alt={PRODUCT.images.portrait.alt}
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover"
@@ -21,20 +22,20 @@ export default function EditorialSplit() {
         </FadeUp>
 
         <FadeUp index={1} className="max-w-md">
-          <p className="label mb-8 text-muted">The maker</p>
+          <p className="label mb-8 text-muted">Fountain of Youth</p>
           <h2 className="font-display text-4xl leading-tight md:text-5xl">
-            A small workshop, one recipe at a time.
+            Skin that looks the way it feels — rested.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted">
-            We started with a single bar and a stovetop pot. The range has grown
-            since, but the method has not — small batches, patient curing, and
-            an ingredient list you can read out loud.
+            We believe renewal is not a promise on a jar, it is a habit. A bar
+            that treats while it cleanses turns the least glamorous step of
+            skincare into the one your skin waits for.
           </p>
           <Link
             href="/about"
             className="label mt-8 inline-block border-b-2 border-primary pb-1 text-ink transition-opacity hover:opacity-60"
           >
-            Read our story
+            The story of Yeong Won
           </Link>
         </FadeUp>
       </div>
