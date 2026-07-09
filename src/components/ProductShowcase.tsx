@@ -19,6 +19,10 @@ export default function ProductShowcase() {
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover"
           />
+          {/* Glass spec chip — a graphic accent over the packshot. */}
+          <div className="glass absolute bottom-5 left-5 px-5 py-3">
+            <span className="label text-ink">{PRODUCT.netContent.box} · Coffret</span>
+          </div>
         </FadeUp>
 
         <FadeUp index={1} className="max-w-lg">
@@ -27,19 +31,9 @@ export default function ProductShowcase() {
             One bar. A month of renewal.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted">
-            {PRODUCT.summary}
+            A concentrated cleansing bar — the daily first step of a renewal
+            ritual.
           </p>
-
-          <ul className="mt-10 border-t border-line">
-            {PRODUCT.keyIngredients.map((ingredient) => (
-              <li
-                key={ingredient.name}
-                className="flex items-baseline justify-between gap-6 border-b border-line py-3"
-              >
-                <span className="label text-ink">{ingredient.name}</span>
-              </li>
-            ))}
-          </ul>
 
           <div className="mt-10 flex flex-wrap items-center gap-6">
             <Link

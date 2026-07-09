@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Cormorant_Garamond, Jost } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SITE } from "@/lib/site";
 
-// Display serif for headlines (§2), 500 weight. UI/body grotesque (§2).
+// Display serif for headlines. Cormorant stays the luxury anchor.
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["400", "500"],
@@ -13,10 +13,12 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
-const inter = Inter({
+// Secondary voice: Jost — a geometric, fashion-forward grotesque that reads
+// more couture than the old Inter while holding up at tiny uppercase tracking.
+const jost = Jost({
   subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-inter",
+  weight: ["300", "400", "500"],
+  variable: "--font-jost",
   display: "swap",
 });
 
@@ -43,7 +45,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${cormorant.variable} ${inter.variable}`}
+      className={`${cormorant.variable} ${jost.variable}`}
     >
       <body className="font-sans antialiased">
         <Header />

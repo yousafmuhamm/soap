@@ -55,6 +55,80 @@
   }
 }
 
+@layer components {
+  /*
+   * Frosted-glass surfaces. These are the ONE deliberate, contained exception
+   * to the otherwise locked zero-radius / zero-shadow system (§4.1 D5): a small
+   * radius + soft shadow are intrinsic to reading as glass. Only ever used over
+   * photographic or video backgrounds (hero, science band, scrolled header) —
+   * over flat colour they read as nothing.
+   */
+  .glass,
+  .glass-dark {
+    position: relative;
+    border-radius: 4px;
+    -webkit-backdrop-filter: blur(20px) saturate(120%);
+    backdrop-filter: blur(20px) saturate(120%);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Light frosted panel — for use over bright/warm imagery. */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+  }
+
+  /* Smoked panel — for use over dark imagery/video (hero, science). */
+  .glass-dark {
+    background: rgba(17, 17, 17, 0.35);
+    border: 1px solid rgba(197, 146, 46, 0.35); /* gold hairline */
+  }
+
+  /* Top-edge sheen that sells the glass. */
+  .glass::before,
+  .glass-dark::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding-top: 1px;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.5),
+      transparent 40%
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  /* Fallbacks: if blur is unsupported or the user reduces transparency, fall
+     back to a solid panel so text never loses its backing. */
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .glass {
+      background: rgba(247, 234, 210, 0.92);
+    }
+    .glass-dark {
+      background: rgba(17, 17, 17, 0.88);
+    }
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    .glass {
+      background: rgba(247, 234, 210, 0.95);
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+    .glass-dark {
+      background: rgba(17, 17, 17, 0.92);
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+  }
+}
+
 /* Honor prefers-reduced-motion: kill all animation/transition/scroll motion. */
 @media (prefers-reduced-motion: reduce) {
   html {

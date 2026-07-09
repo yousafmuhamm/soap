@@ -10,7 +10,7 @@ export default function CtaStrip() {
     <section className="border-y border-line bg-bg">
       <FadeUp className="mx-auto flex max-w-[1400px] flex-col items-start justify-between gap-6 px-5 py-16 md:flex-row md:items-center md:px-10 md:py-20">
         <p className="font-display text-3xl md:text-4xl">
-          Reveal your best.
+          The first step, perfected.
         </p>
         <div className="flex flex-wrap items-center gap-6">
           <Link

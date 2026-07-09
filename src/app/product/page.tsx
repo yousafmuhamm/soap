@@ -69,6 +69,16 @@ export default function ProductPage() {
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
               />
+              {/* Wholesale spec chip on the lead packshot. */}
+              {i === 0 && (
+                <div className="glass absolute bottom-5 left-5 flex flex-wrap gap-x-6 gap-y-1 px-6 py-4">
+                  <span className="label text-ink">{PRODUCT.netContent.bar} bar</span>
+                  <span className="label text-ink">{PRODUCT.netContent.box}</span>
+                  <span className="label text-ink">
+                    {PRODUCT.inci.length} ingredients
+                  </span>
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -84,9 +94,13 @@ export default function ProductPage() {
             {PRODUCT.netContent.bar} bar · {PRODUCT.netContent.box} per coffret
           </p>
 
-          <div className="mt-8 space-y-4 text-base leading-relaxed text-ink/80">
-            <p>{PRODUCT.story[0]}</p>
-            <p>{PRODUCT.story[1]}</p>
+          <div className="mt-8 text-base leading-relaxed text-ink/80">
+            <p>
+              Built around a single conviction — that the first step of a
+              skincare ritual should work as hard as the last. The result is a
+              cleanse that behaves like a treatment: skin feels supple rather
+              than stripped, tone brighter, texture more refined.
+            </p>
           </div>
 
           {/* Benefit index */}

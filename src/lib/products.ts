@@ -29,15 +29,15 @@ export const PRODUCT = {
   benefits: [
     {
       title: "Helps brighten skin",
-      body: "Niacinamide and plant stem cell culture extract support a more even, luminous tone with every wash.",
+      body: "Niacinamide + stem cell extract, for a luminous, even tone.",
     },
     {
       title: "Promotes smoother-looking skin",
-      body: "Snail secretion filtrate and collagen help refine texture and soften the look of fine lines.",
+      body: "Snail + collagen, to refine texture and soften fine lines.",
     },
     {
       title: "Supports healthy skin appearance",
-      body: "Aloe vera, oatmeal and milk soothe, nourish and protect the skin barrier as you cleanse.",
+      body: "Aloe, oat + milk, to soothe and protect.",
     },
   ],
   /** The carton's "Science Beyond Youthful Skin" panel, in printed order. */
@@ -155,6 +155,10 @@ export const PRODUCT = {
     portrait: {
       src: "/images/product/portrait.png",
       alt: "A woman with luminous, healthy skin in warm golden light",
+    },
+    skinGlow: {
+      src: "/images/product/skin-glow.png",
+      alt: "Macro of luminous, dewy skin with a warm golden glow",
     },
   },
   videos: {

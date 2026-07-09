@@ -38,7 +38,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         display: ["var(--font-cormorant)", "Georgia", "serif"],
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        sans: ["var(--font-jost)", "system-ui", "sans-serif"],
       },
       letterSpacing: {
         label: "0.2em",

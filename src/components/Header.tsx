@@ -42,7 +42,9 @@ export default function Header() {
       <header
         className={[
           "fixed inset-x-0 top-0 z-40 transition-colors duration-300",
-          solid ? "border-b border-line bg-bg" : "border-b border-transparent",
+          solid
+            ? "border-b border-line bg-white/70 backdrop-blur-md"
+            : "border-b border-transparent",
         ].join(" ")}
       >
         <div

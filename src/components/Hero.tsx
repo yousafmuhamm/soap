@@ -2,12 +2,13 @@ import Link from "next/link";
 import HeroReel from "./HeroReel";
 import FadeUp from "./FadeUp";
 import { PRODUCT } from "@/lib/products";
-import { SITE } from "@/lib/site";
 
 /**
- * Full-bleed hero: a seamless reel of cinematic effect/environment clips —
- * ritual, glow, atmosphere — crossfaded forever. Falls back to the dark
- * packshot still under reduced motion. The only priority media on the site.
+ * Full-bleed hero: a seamless reel of cinematic effect/environment clips
+ * crossfaded forever, with a left-aligned, vertically-centred headline block.
+ * A left-to-right ink gradient keeps the copy legible while the video subject
+ * stays visible on the right. Falls back to the dark packshot still under
+ * reduced motion. The only priority media on the site.
  */
 export default function Hero() {
   return (
@@ -18,37 +19,42 @@ export default function Hero() {
         alt={PRODUCT.images.barDark.alt}
       />
 
-      {/* Ink scrims: a faint full-frame veil plus a deeper bottom gradient so
-          the headline stays legible on any frame of the reel. */}
+      {/* Legibility scrims: a faint full veil plus a stronger left gradient
+          under the copy column. */}
       <div className="absolute inset-0 bg-ink/25" aria-hidden />
       <div
-        className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-ink/80 to-transparent"
+        className="absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/40 to-transparent"
         aria-hidden
       />
 
-      <div className="absolute inset-x-0 bottom-0 px-5 pb-16 md:px-10 md:pb-24">
-        <div className="mx-auto max-w-[1400px]">
-          <FadeUp>
-            <p className="label mb-6 text-primary">
-              {SITE.name} — {SITE.descriptor}
-            </p>
-            <h1 className="max-w-4xl font-display text-5xl leading-[1.05] text-white md:text-8xl">
+      {/* Vertically-centred, left-aligned content column. */}
+      <div className="absolute inset-0 flex items-center">
+        <div className="mx-auto w-full max-w-[1400px] px-5 md:px-10">
+          <FadeUp className="max-w-xl">
+            <h1 className="font-display text-5xl leading-[1.05] text-white md:text-7xl">
               Renew. Restore.
               <br />
               Reveal your best.
             </h1>
-            <p className="mt-6 max-w-xl text-sm leading-relaxed text-white/70 md:text-base">
-              Stemcell Soap — a concentrated renewal bar with plant stem cell
-              culture extract, snail extract, niacinamide and collagen.
+            <p className="mt-6 max-w-md text-sm leading-relaxed text-white/75 md:text-base">
+              Stemcell Soap — a renewal bar, made like a treatment.
             </p>
-            <Link
-              href="/product"
-              className="label group mt-8 inline-flex w-fit items-center pb-1 text-white"
-            >
-              <span className="border-b-2 border-primary pb-1 transition-opacity group-hover:opacity-70">
+
+            <div className="mt-9 flex flex-wrap items-center gap-4">
+              <Link
+                href="/product"
+                className="label inline-flex items-center gap-2 rounded-[100px] bg-white px-8 py-4 text-ink transition-colors hover:bg-primary"
+              >
                 Discover the soap
-              </span>
-            </Link>
+                <span aria-hidden>›</span>
+              </Link>
+              <Link
+                href="/science"
+                className="label inline-flex items-center rounded-[100px] border border-white/50 px-8 py-4 text-white transition-colors hover:bg-white/10"
+              >
+                The science
+              </Link>
+            </div>
           </FadeUp>
         </div>
       </div>

@@ -6,17 +6,17 @@ const STEPS = [
   {
     n: "01",
     title: "Lather",
-    body: "Work the bar between wet palms until a dense, cream-like foam forms.",
+    body: "Work the bar between wet palms into a dense, cream-like foam.",
   },
   {
     n: "02",
     title: "Massage",
-    body: "Sweep the lather over face and body in slow circles, letting the actives sit for a breath.",
+    body: "Sweep over face and body in slow circles; let the actives rest.",
   },
   {
     n: "03",
     title: "Rinse",
-    body: "Rinse thoroughly with warm water. Morning and evening, as the first step of your ritual.",
+    body: "Rinse with warm water. Morning and evening.",
   },
 ];
 

@@ -27,9 +27,8 @@ export default function EditorialSplit() {
             Skin that looks the way it feels — rested.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted">
-            We believe renewal is not a promise on a jar, it is a habit. A bar
-            that treats while it cleanses turns the least glamorous step of
-            skincare into the one your skin waits for.
+            Renewal isn&rsquo;t a promise on a jar — it&rsquo;s a habit. A bar
+            that treats while it cleanses.
           </p>
           <Link
             href="/about"
