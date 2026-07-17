@@ -1,6 +1,6 @@
 /**
  * Shared types/constants for the contact form. Kept out of actions.ts because a
- * "use server" module may only export async functions — not types or values.
+ * "use server" module may only export async functions - not types or values.
  */
 
 export type ContactFieldName = "name" | "email" | "subject" | "message";

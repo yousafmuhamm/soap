@@ -7,11 +7,11 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Find a stockist, ask about wholesale, or say hello. We reply within two days.",
+    "Find a stockist, ask about wholesale, or say hello. We'll get back to you as soon as we can.",
 };
 
 /**
- * /contact — a centered enquiry form. The form reads ?product / ?subject and
+ * /contact - a centered enquiry form. The form reads ?product / ?subject and
  * uses useSearchParams, so it sits inside a Suspense boundary.
  */
 export default function ContactPage() {
@@ -38,6 +38,38 @@ export default function ContactPage() {
         <Suspense fallback={null}>
           <ContactForm />
         </Suspense>
+      </div>
+
+      {/* Direct contact details */}
+      <div className="mt-16 grid grid-cols-1 gap-8 border-t border-line pt-10 sm:grid-cols-3">
+        <div>
+          <p className="label mb-3 text-muted">Email</p>
+          <a
+            href={`mailto:${SITE.email}`}
+            className="text-sm text-ink transition-opacity hover:opacity-60"
+          >
+            {SITE.email}
+          </a>
+        </div>
+        <div>
+          <p className="label mb-3 text-muted">Phone</p>
+          <a
+            href={`tel:${SITE.phone.tel}`}
+            className="text-sm text-ink transition-opacity hover:opacity-60"
+          >
+            {SITE.phone.display}
+          </a>
+        </div>
+        <div>
+          <p className="label mb-3 text-muted">Office</p>
+          <address className="text-sm not-italic leading-relaxed text-ink">
+            {SITE.address.lines.map((line) => (
+              <span key={line} className="block">
+                {line}
+              </span>
+            ))}
+          </address>
+        </div>
       </div>
     </div>
   );

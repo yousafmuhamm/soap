@@ -8,11 +8,11 @@ import { PRODUCT } from "@/lib/products";
 export const metadata: Metadata = {
   title: "The Science",
   description:
-    "The science beyond youthful skin — how plant stem cell culture extract, snail extract, niacinamide, collagen, aloe vera and oatmeal & milk work together in Stemcell Soap.",
+    "The science beyond youthful skin: how plant stem cell culture extract, snail extract, niacinamide, collagen, aloe vera and oatmeal & milk work together in Stemcell Soap.",
 };
 
 /**
- * /science — the carton's "Science Beyond Youthful Skin" panel, expanded into
+ * /science - the carton's "Science Beyond Youthful Skin" panel, expanded into
  * a long-form editorial page: lab imagery, six ingredient chapters, and the
  * full INCI declaration.
  */
@@ -52,7 +52,7 @@ export default function SciencePage() {
           <div className="space-y-6 text-lg leading-relaxed text-ink/85">
             <p>
               Most cleansing bars are built to wash. Ours is built to treat.
-              Every active in Stemcell Soap was chosen for one reason — a
+              Every active in Stemcell Soap was chosen for one reason: a
               documented role in how skin renews, holds moisture, and keeps
               its tone even.
             </p>
@@ -83,7 +83,7 @@ export default function SciencePage() {
               className="relative flex gap-8 pb-12 last:pb-0"
             >
               <div className="flex flex-col items-center">
-                <span className="font-display text-2xl leading-none text-primary">
+                <span className="font-display text-2xl leading-none text-primary-ink">
                   0{i + 1}
                 </span>
                 {i < PRODUCT.keyIngredients.length - 1 && (
@@ -104,18 +104,18 @@ export default function SciencePage() {
         </ol>
       </section>
 
-      {/* Full INCI — pale band */}
+      {/* Full INCI - pale band */}
       <section className="bg-primary-2 px-5 py-24 md:px-10 md:py-32">
         <div className="mx-auto max-w-[1400px]">
           <FadeUp>
-            <p className="label mb-3 text-muted">Full declaration</p>
+            <p className="label mb-3 text-ink/70">Full declaration</p>
             <h2 className="max-w-2xl font-display text-4xl leading-tight md:text-5xl">
               Every ingredient, in order.
             </h2>
             <p className="mt-8 max-w-3xl text-base leading-relaxed text-ink/80">
               {PRODUCT.inci.join(", ")}.
             </p>
-            <p className="mt-6 max-w-3xl text-sm leading-relaxed text-muted">
+            <p className="mt-6 max-w-3xl text-sm leading-relaxed text-ink/70">
               {PRODUCT.storage} Net content {PRODUCT.netContent.bar} per bar,
               {" "}
               {PRODUCT.netContent.box} per coffret.

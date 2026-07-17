@@ -7,7 +7,7 @@ import FadeUp from "@/components/FadeUp";
 import { GALLERY, PRODUCT } from "@/lib/products";
 
 export const metadata: Metadata = {
-  title: `${PRODUCT.name} — ${PRODUCT.tagline}`,
+  title: `${PRODUCT.name}: ${PRODUCT.tagline}`,
   description: PRODUCT.summary,
   openGraph: {
     title: PRODUCT.name,
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 /**
- * /product — the single product's information page: stacked gallery on the
+ * /product - the single product's information page: stacked gallery on the
  * left, sticky detail panel on the right, formulation accordion anchored at
  * #formulation, then the six-ingredient science index.
  */
@@ -85,18 +85,18 @@ export default function ProductPage() {
 
         {/* Right: sticky info panel */}
         <div className="md:sticky md:top-28 md:h-fit">
-          <p className="label text-muted">Yeong Won — Fountain of Youth</p>
+          <p className="label text-muted">Yeong Won, Fountain of Youth</p>
           <h1 className="mt-4 font-display text-5xl leading-tight md:text-6xl">
             {PRODUCT.name}
           </h1>
-          <p className="mt-3 label text-primary">{PRODUCT.tagline}</p>
+          <p className="mt-3 label text-primary-ink">{PRODUCT.tagline}</p>
           <p className="mt-6 text-base text-muted">
             {PRODUCT.netContent.bar} bar · {PRODUCT.netContent.box} per coffret
           </p>
 
           <div className="mt-8 text-base leading-relaxed text-ink/80">
             <p>
-              Built around a single conviction — that the first step of a
+              Built around a single conviction: the first step of a
               skincare ritual should work as hard as the last. The result is a
               cleanse that behaves like a treatment: skin feels supple rather
               than stripped, tone brighter, texture more refined.
@@ -115,7 +115,7 @@ export default function ProductPage() {
             ))}
           </ul>
 
-          {/* CTA row — brochure site, no cart */}
+          {/* CTA row - brochure site, no cart */}
           <div className="mt-10 flex flex-wrap items-center gap-6">
             <Link
               href="/contact"
@@ -151,7 +151,7 @@ export default function ProductPage() {
         <div className="grid grid-cols-2 gap-x-5 gap-y-12 md:grid-cols-3 md:gap-x-8">
           {PRODUCT.keyIngredients.map((ingredient, i) => (
             <FadeUp key={ingredient.name} index={i % 3}>
-              <span className="font-display text-xl text-primary/70">
+              <span className="font-display text-xl text-primary-ink">
                 0{i + 1}
               </span>
               <h3 className="mt-3 font-display text-2xl">{ingredient.name}</h3>

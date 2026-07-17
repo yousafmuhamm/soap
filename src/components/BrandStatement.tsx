@@ -10,7 +10,7 @@ export default function BrandStatement() {
       <FadeUp className="mx-auto max-w-4xl text-center">
         <p className="label mb-10 text-muted">The House of Yeong Won</p>
         <p className="font-display text-3xl leading-[1.25] md:text-5xl md:leading-[1.2]">
-          Yeong Won means eternal. We make one bar of soap — and make it the way
+          Yeong Won means eternal. We make one bar of soap, and make it the way
           a treatment is made.
         </p>
       </FadeUp>

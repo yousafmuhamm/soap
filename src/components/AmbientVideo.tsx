@@ -16,7 +16,7 @@ interface AmbientVideoProps {
 /**
  * Decorative background video: autoplaying, muted, looped, with a static
  * image fallback. The video is hidden for prefers-reduced-motion users, who
- * see the still instead — no JS needed, both layers are absolutely filled.
+ * see the still instead - no JS needed, both layers are absolutely filled.
  */
 export default function AmbientVideo({
   src,

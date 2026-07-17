@@ -8,14 +8,28 @@ export const SITE = {
   descriptor: "Fountain of Youth",
   tagline: "Renew. Restore. Reveal your best.",
   description:
-    "Yeong Won Stemcell Soap — a luxury renewal bar with plant stem cell culture extract, snail extract, niacinamide and collagen. Helps brighten, smooth and support healthy-looking skin.",
+    "Yeong Won Stemcell Soap is a luxury renewal bar with plant stem cell culture extract, snail extract, niacinamide and collagen. It helps brighten, smooth and support healthy-looking skin.",
   url: "https://yeongwon.example.com",
-  // Post-launch: swap for the client's real address / enquiry line.
-  email: "hello@yeongwon.example.com",
-  wholesaleEmail: "wholesale@yeongwon.example.com",
+  // House inbox - all enquiries and leads are delivered here.
+  email: "yeongwoninfinity2026@gmail.com",
+  wholesaleEmail: "yeongwoninfinity2026@gmail.com",
+  phone: {
+    /** Pretty form for display. */
+    display: "+63 967 486 2335",
+    /** Dial-safe form for tel: links. */
+    tel: "+639674862335",
+  },
+  address: {
+    /** Printed line-by-line; also joined for a single-line/meta use. */
+    lines: [
+      "315 F. Manalo St., Ligid-Tipas",
+      "City of Taguig 1638",
+      "NCR, Fourth District, Philippines",
+    ],
+  },
 } as const;
 
-/** Primary navigation — one product, four destinations. */
+/** Primary navigation - one product, four destinations. */
 export const NAV: ReadonlyArray<{ label: string; href: string }> = [
   { label: "The Soap", href: "/product" },
   { label: "The Science", href: "/science" },

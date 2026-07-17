@@ -1,10 +1,11 @@
 "use server";
 
 import type { ContactState } from "./types";
+import { sendLeadEmail } from "@/lib/mailer";
 
 /**
  * Contact form server action. v1 validates and logs; email delivery is wired
- * post-launch and is isolated to this one file (§4.1 D8 — swap the log for a
+ * post-launch and is isolated to this one file (§4.1 D8 - swap the log for a
  * Resend/Formspree call). A "use server" module may only export async
  * functions, so the shared state type/constant live in ./types.
  */
@@ -12,6 +13,9 @@ import type { ContactState } from "./types";
 const SUBJECTS = ["general", "stockist", "wholesale", "press"] as const;
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const MAX_NAME_LENGTH = 120;
+const MAX_EMAIL_LENGTH = 200;
+const MAX_MESSAGE_LENGTH = 2000;
 
 export async function submitContact(
   _prev: ContactState,
@@ -24,12 +28,21 @@ export async function submitContact(
 
   const errors: ContactState["errors"] = {};
   if (!name) errors.name = "Please tell us your name.";
+  else if (name.length > MAX_NAME_LENGTH) {
+    errors.name = `Please keep your name under ${MAX_NAME_LENGTH} characters.`;
+  }
   if (!email) errors.email = "Please add an email address.";
   else if (!EMAIL_RE.test(email)) errors.email = "That email doesn't look right.";
+  else if (email.length > MAX_EMAIL_LENGTH) {
+    errors.email = `Please keep your email under ${MAX_EMAIL_LENGTH} characters.`;
+  }
   if (!subject || !SUBJECTS.includes(subject as (typeof SUBJECTS)[number])) {
     errors.subject = "Please choose a subject.";
   }
   if (!message) errors.message = "Please write a short message.";
+  else if (message.length > MAX_MESSAGE_LENGTH) {
+    errors.message = `Please keep your message under ${MAX_MESSAGE_LENGTH} characters.`;
+  }
 
   if (Object.keys(errors).length > 0) {
     return {
@@ -40,11 +53,32 @@ export async function submitContact(
     };
   }
 
-  // Post-launch swap point: deliver this to email instead of logging.
-  console.log("Contact enquiry:", { name, email, subject, message });
+  // Deliver to the house inbox. If delivery is not configured or fails, keep
+  // the visitor's values and return a recoverable error.
+  const delivered = await sendLeadEmail({
+    subject: `New enquiry (${subject}) - ${name}`,
+    replyTo: email,
+    lines: [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Subject: ${subject}`,
+      "",
+      "Message:",
+      message,
+    ],
+  });
+
+  if (!delivered) {
+    return {
+      status: "error",
+      message:
+        "We couldn't send your enquiry just now. Please try again or email us directly.",
+      values: { name, email, subject, message },
+    };
+  }
 
   return {
     status: "success",
-    message: "Thank you. We reply within two days.",
+    message: "Thank you. We'll be in touch with you as soon as we can.",
   };
 }

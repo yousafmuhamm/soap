@@ -15,6 +15,11 @@ interface HeroReelProps {
 const FADE_MS = 1200;
 const FADE_S = FADE_MS / 1000;
 
+interface NetworkInformation {
+  effectiveType?: string;
+  saveData?: boolean;
+}
+
 /**
  * Seamless ambient hero reel: two stacked <video> buffers. The hidden buffer
  * preloads the next clip; just before the visible clip ends, the hidden one
@@ -28,20 +33,48 @@ export default function HeroReel({ clips, poster, alt }: HeroReelProps) {
   /** Position in the playlist of the clip now in front. */
   const posRef = useRef(0);
   const swappingRef = useRef(false);
+  const retireTimerRef = useRef<number | null>(null);
 
   // Start the reel: clip 0 plays in A, clip 1 preloads in B.
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const connection = (
+      navigator as Navigator & { connection?: NetworkInformation }
+    ).connection;
+    if (
+      connection?.saveData ||
+      connection?.effectiveType === "slow-2g" ||
+      connection?.effectiveType === "2g"
+    ) {
+      return;
+    }
+
     const a = videoA.current;
     const b = videoB.current;
     if (!a || !b || clips.length === 0) return;
+    a.preload = "auto";
     a.src = clips[0];
-    a.play().catch(() => {});
-    if (clips.length > 1) {
+
+    const preloadNext = () => {
+      if (clips.length <= 1 || b.src) return;
+      b.preload = "auto";
       b.src = clips[1 % clips.length];
       b.load();
-    }
+    };
+
+    a.addEventListener("playing", preloadNext, { once: true });
+    a.play().catch(() => {});
+    return () => a.removeEventListener("playing", preloadNext);
   }, [clips]);
+
+  useEffect(
+    () => () => {
+      if (retireTimerRef.current !== null) {
+        window.clearTimeout(retireTimerRef.current);
+      }
+    },
+    [],
+  );
 
   // Watch the front buffer; as it nears its end, fade the back buffer in.
   useEffect(() => {
@@ -58,9 +91,10 @@ export default function HeroReel({ clips, poster, alt }: HeroReelProps) {
       backEl.play().catch(() => {});
       setFront(front === "a" ? "b" : "a");
       // Once the fade finishes, retire the old clip and preload the one after.
-      setTimeout(() => {
+      retireTimerRef.current = window.setTimeout(() => {
         frontEl.pause();
         posRef.current = (posRef.current + 1) % clips.length;
+        frontEl.preload = "auto";
         frontEl.src = clips[(posRef.current + 1) % clips.length];
         frontEl.load();
       }, FADE_MS);
@@ -106,7 +140,7 @@ export default function HeroReel({ clips, poster, alt }: HeroReelProps) {
         ref={videoA}
         muted
         playsInline
-        preload="auto"
+        preload="none"
         aria-hidden
         style={{ transitionDuration: `${FADE_MS}ms` }}
         className={videoClass(front === "a")}
@@ -115,7 +149,7 @@ export default function HeroReel({ clips, poster, alt }: HeroReelProps) {
         ref={videoB}
         muted
         playsInline
-        preload="auto"
+        preload="none"
         aria-hidden
         style={{ transitionDuration: `${FADE_MS}ms` }}
         className={videoClass(front === "b")}

@@ -17,7 +17,7 @@ export default function TermsPage() {
       <h1 className="mt-8 font-display text-5xl leading-tight md:text-6xl">
         Terms
       </h1>
-      <p className="label mt-6 text-muted">Placeholder — to be reviewed</p>
+      <p className="label mt-6 text-muted">Placeholder, to be reviewed</p>
 
       <div className="mt-12 space-y-6 text-base leading-relaxed text-ink/85">
         <p>

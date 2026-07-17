@@ -8,7 +8,7 @@ import EditorialSplit from "@/components/EditorialSplit";
 import CtaStrip from "@/components/CtaStrip";
 
 /**
- * Home page — the single-product narrative, top to bottom:
+ * Home page - the single-product narrative, top to bottom:
  * Hero (ambient video) → Brand statement → Benefits → Product showcase →
  * Science grid → Ritual band → Editorial split → CTA strip.
  */

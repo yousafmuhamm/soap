@@ -10,7 +10,7 @@ export interface AccordionItem {
 
 /**
  * Accessible disclosure accordion with hairline dividers (§3). Each row is a
- * <button aria-expanded aria-controls> paired with a region — fully keyboard
+ * <button aria-expanded aria-controls> paired with a region - fully keyboard
  * operable (Enter/Space toggle, Tab to move). Height animates open/closed;
  * reduced motion snaps. Multiple rows may be open at once.
  */

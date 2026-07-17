@@ -37,7 +37,7 @@ export default function Hero() {
               Reveal your best.
             </h1>
             <p className="mt-6 max-w-md text-sm leading-relaxed text-white/75 md:text-base">
-              Stemcell Soap — a renewal bar, made like a treatment.
+              Stemcell Soap, a renewal bar made like a treatment.
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-4">

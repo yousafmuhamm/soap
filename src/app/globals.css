@@ -2,9 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Locked palette from master plan §2 — mirrored as CSS vars for raw CSS usage. */
+/* Locked palette from master plan §2 - mirrored as CSS vars for raw CSS usage. */
 :root {
   --color-primary: #c5922e;
+  --color-primary-ink: #8a641e;
   --color-primary-2: #f7ead2;
   --color-bg: #ffffff;
   --color-ink: #111111;
@@ -37,12 +38,12 @@
     outline-offset: 2px;
   }
 
-  /* Tiny uppercase editorial label — YSL-style nav/section labels. */
+  /* Tiny uppercase editorial label - YSL-style nav/section labels. */
   .label {
     font-size: 0.6875rem; /* 11px */
     line-height: 1.2;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.16em;
   }
 
   .brand-logo {
@@ -60,7 +61,7 @@
    * Frosted-glass surfaces. These are the ONE deliberate, contained exception
    * to the otherwise locked zero-radius / zero-shadow system (§4.1 D5): a small
    * radius + soft shadow are intrinsic to reading as glass. Only ever used over
-   * photographic or video backgrounds (hero, science band, scrolled header) —
+   * photographic or video backgrounds (hero, science band, scrolled header) -
    * over flat colour they read as nothing.
    */
   .glass,
@@ -72,13 +73,13 @@
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
   }
 
-  /* Light frosted panel — for use over bright/warm imagery. */
+  /* Light frosted panel - for use over bright/warm imagery. */
   .glass {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.35);
   }
 
-  /* Smoked panel — for use over dark imagery/video (hero, science). */
+  /* Smoked panel - for use over dark imagery/video (hero, science). */
   .glass-dark {
     background: rgba(17, 17, 17, 0.35);
     border: 1px solid rgba(197, 146, 46, 0.35); /* gold hairline */

@@ -6,7 +6,7 @@ import type { ComponentProps } from "react";
 type MotionDivProps = ComponentProps<typeof motion.div>;
 
 interface FadeUpProps extends MotionDivProps {
-  /** Stagger index — multiplies the 80ms base delay (§2 motion spec). */
+  /** Stagger index - multiplies the 60ms base delay. */
   index?: number;
   /** Render as a different element while keeping the motion behaviour. */
   as?: "div" | "li" | "section";
@@ -14,8 +14,8 @@ interface FadeUpProps extends MotionDivProps {
 
 /**
  * Shared scroll-reveal wrapper (§4.2): fades content up once when it enters the
- * viewport. 400ms ease-out, 80ms stagger per index. Disabled entirely under
- * prefers-reduced-motion — content renders immediately in its final position.
+ * viewport. 320ms ease-out, 60ms stagger per index. Disabled entirely under
+ * prefers-reduced-motion - content renders immediately in its final position.
  * Built once here, reused across every section.
  */
 export default function FadeUp({
@@ -35,13 +35,13 @@ export default function FadeUp({
 
   return (
     <MotionTag
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0.85, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{
-        duration: 0.4,
+        duration: 0.32,
         ease: "easeOut",
-        delay: index * 0.08,
+        delay: index * 0.06,
       }}
       {...props}
     >

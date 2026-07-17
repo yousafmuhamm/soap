@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import BrandLogo from "./BrandLogo";
 import MobileMenu from "./MobileMenu";
 import { NAV, SITE } from "@/lib/site";
@@ -20,6 +20,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const hasHero = pathname === "/";
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -62,7 +63,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="label transition-opacity hover:opacity-60"
+                className="label transition-opacity hover:opacity-60 focus-visible:outline-current"
               >
                 {item.label}
               </Link>
@@ -70,7 +71,7 @@ export default function Header() {
           </nav>
           <button
             type="button"
-            className="label flex-1 text-left md:hidden"
+            className="label flex min-h-11 flex-1 items-center text-left focus-visible:outline-current md:hidden"
             aria-label="Open menu"
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen(true)}
@@ -83,12 +84,13 @@ export default function Header() {
             href="/"
             className={[
               "transition-colors duration-300 hover:opacity-80",
+              "focus-visible:outline-current",
               logoClass,
             ].join(" ")}
-            aria-label={`${SITE.name} — home`}
+            aria-label={`${SITE.name}, home`}
           >
             <BrandLogo
-              className="[--brand-logo-height:2.5rem] md:[--brand-logo-height:3rem]"
+              className="[--brand-logo-height:2.75rem] md:[--brand-logo-height:3.25rem]"
               decorative
             />
           </Link>
@@ -97,7 +99,7 @@ export default function Header() {
           <div className="flex flex-1 items-center justify-end">
             <Link
               href="/contact"
-              className="label hidden transition-opacity hover:opacity-60 md:inline"
+              className="label hidden transition-opacity hover:opacity-60 focus-visible:outline-current md:inline"
             >
               Find a Stockist
             </Link>
@@ -105,7 +107,7 @@ export default function Header() {
         </div>
       </header>
 
-      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
+      <MobileMenu open={menuOpen} onClose={closeMenu} />
     </>
   );
 }

@@ -39,7 +39,7 @@ export default function RitualBand() {
 
         <div className="px-5 py-16 md:px-14 md:py-24">
           <FadeUp>
-            <p className="label mb-10 text-muted">The Ritual</p>
+            <p className="label mb-10 text-ink/70">The Ritual</p>
           </FadeUp>
           <ol>
             {STEPS.map((step, i) => (
@@ -50,12 +50,12 @@ export default function RitualBand() {
                 className="border-t border-line py-8 first:border-t-0 first:pt-0"
               >
                 <div className="flex gap-6">
-                  <span className="font-display text-2xl text-primary">
+                  <span className="font-display text-2xl text-primary-ink">
                     {step.n}
                   </span>
                   <div>
                     <h3 className="font-display text-2xl">{step.title}</h3>
-                    <p className="mt-2 max-w-sm text-sm text-muted">
+                    <p className="mt-2 max-w-sm text-sm text-ink/70">
                       {step.body}
                     </p>
                   </div>

@@ -19,7 +19,7 @@ export default function ProductShowcase() {
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover"
           />
-          {/* Glass spec chip — a graphic accent over the packshot. */}
+          {/* Glass spec chip - a graphic accent over the packshot. */}
           <div className="glass absolute bottom-5 left-5 px-5 py-3">
             <span className="label text-ink">{PRODUCT.netContent.box} · Coffret</span>
           </div>
@@ -31,7 +31,7 @@ export default function ProductShowcase() {
             One bar. A month of renewal.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted">
-            A concentrated cleansing bar — the daily first step of a renewal
+            A concentrated cleansing bar, the daily first step of a renewal
             ritual.
           </p>
 

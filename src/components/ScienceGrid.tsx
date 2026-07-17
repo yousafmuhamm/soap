@@ -4,7 +4,7 @@ import FadeUp from "./FadeUp";
 import { PRODUCT } from "@/lib/products";
 
 /**
- * "The Science Beyond Youthful Skin" — a cinematic photographic band with a
+ * "The Science Beyond Youthful Skin" - a cinematic photographic band with a
  * frosted-glass panel floating over it. The panel carries only the six active
  * NAMES; the full benefit copy lives on /science, so this reads as image-first
  * rather than a wall of text.

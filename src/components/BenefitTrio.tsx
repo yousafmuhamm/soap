@@ -3,15 +3,15 @@ import FadeUp from "./FadeUp";
 import { PRODUCT } from "@/lib/products";
 
 /**
- * "What it does" — the three front-of-pack benefits, laid over a cinematic
- * skin-glow photograph as individual frosted-glass cards. Distinct from the
+ * "What it does" - the three front-of-pack benefits, laid over a cinematic
+ * macro of the bar as individual frosted-glass cards. Distinct from the
  * science band (single left panel) so the glass language stays cohesive
  * without repeating itself.
  */
 export default function BenefitTrio() {
   return (
     <section className="relative overflow-hidden bg-ink">
-      {/* Photographic background — luminous skin, the "effect" of the bar. */}
+      {/* Photographic background - a macro of the bar, the "effect" up close. */}
       <Image
         src={PRODUCT.images.skinGlow.src}
         alt={PRODUCT.images.skinGlow.alt}

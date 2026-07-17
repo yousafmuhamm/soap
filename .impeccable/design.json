@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 2,
+  "name": "Yeong Won",
+  "description": "A refined, clinically assured wholesale skincare house.",
+  "generatedAt": "2026-07-17T03:49:45Z",
+  "colorMeta": {
+    "clinicalGold": {
+      "hex": "#C5922E",
+      "role": "Brand accent for rules, icons, and dark surfaces",
+      "ramp": [
+        "oklch(97% 0.025 82)",
+        "oklch(92% 0.055 82)",
+        "oklch(85% 0.09 82)",
+        "oklch(76% 0.12 82)",
+        "oklch(67% 0.135 82)",
+        "oklch(58% 0.13 82)",
+        "oklch(49% 0.115 82)",
+        "oklch(40% 0.095 82)"
+      ]
+    },
+    "clinicalGoldInk": {
+      "hex": "#8A641E",
+      "role": "Accessible gold-toned text on light surfaces",
+      "ramp": [
+        "oklch(96% 0.02 82)",
+        "oklch(89% 0.05 82)",
+        "oklch(80% 0.08 82)",
+        "oklch(70% 0.1 82)",
+        "oklch(60% 0.105 82)",
+        "oklch(51% 0.1 82)",
+        "oklch(43% 0.09 82)",
+        "oklch(35% 0.075 82)"
+      ]
+    },
+    "porcelainCream": {
+      "hex": "#F7EAD2",
+      "role": "Warm editorial surface and product backdrop",
+      "ramp": [
+        "oklch(99% 0.008 82)",
+        "oklch(97% 0.025 82)",
+        "oklch(93% 0.045 82)",
+        "oklch(87% 0.06 82)",
+        "oklch(78% 0.07 82)",
+        "oklch(68% 0.065 82)",
+        "oklch(57% 0.055 82)",
+        "oklch(45% 0.045 82)"
+      ]
+    },
+    "galleryWhite": {
+      "hex": "#FFFFFF",
+      "role": "Primary canvas",
+      "ramp": [
+        "oklch(100% 0 0)",
+        "oklch(98% 0 0)",
+        "oklch(95% 0 0)",
+        "oklch(90% 0 0)",
+        "oklch(82% 0 0)",
+        "oklch(70% 0 0)",
+        "oklch(55% 0 0)",
+        "oklch(40% 0 0)"
+      ]
+    },
+    "houseInk": {
+      "hex": "#111111",
+      "role": "Primary text, controls, and dark surfaces",
+      "ramp": [
+        "oklch(98% 0 0)",
+        "oklch(90% 0 0)",
+        "oklch(78% 0 0)",
+        "oklch(65% 0 0)",
+        "oklch(50% 0 0)",
+        "oklch(36% 0 0)",
+        "oklch(23% 0 0)",
+        "oklch(18% 0 0)"
+      ]
+    },
+    "quietGraphite": {
+      "hex": "#6B6B6B",
+      "role": "Secondary copy on white",
+      "ramp": [
+        "oklch(97% 0 0)",
+        "oklch(90% 0 0)",
+        "oklch(80% 0 0)",
+        "oklch(68% 0 0)",
+        "oklch(56% 0 0)",
+        "oklch(47% 0 0)",
+        "oklch(38% 0 0)",
+        "oklch(29% 0 0)"
+      ]
+    }
+  },
+  "typographyMeta": {
+    "display": {
+      "family": "Cormorant Garamond",
+      "fallback": "Georgia, serif",
+      "weights": [400, 500],
+      "usage": "Headlines, pull quotes, product names, and prominent numerals"
+    },
+    "body": {
+      "family": "Jost",
+      "fallback": "system-ui, sans-serif",
+      "weights": [300, 400, 500],
+      "usage": "Body copy, navigation, forms, metadata, and actions"
+    },
+    "label": {
+      "family": "Jost",
+      "size": "11px",
+      "lineHeight": 1.2,
+      "letterSpacing": "0.16em",
+      "transform": "uppercase"
+    }
+  },
+  "shadows": {
+    "none": "none",
+    "glass": "0 8px 40px rgba(0, 0, 0, 0.25)"
+  },
+  "motion": {
+    "revealDuration": "320ms",
+    "revealDistance": "12px",
+    "stagger": "60ms",
+    "easing": "ease-out",
+    "reducedMotion": "Render content in its final state and hide ambient video"
+  },
+  "breakpoints": {
+    "sm": "640px",
+    "md": "768px",
+    "lg": "1024px",
+    "xl": "1280px",
+    "2xl": "1536px"
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "snippet": "<button class=\"ds-primary-button\">Send enquiry</button>",
+      "guidance": "Square, at least 44px tall, ink field, white label, gold hover."
+    },
+    {
+      "name": "Editorial Link",
+      "snippet": "<a class=\"ds-editorial-link\" href=\"/contact?subject=wholesale\">Wholesale enquiry</a>",
+      "guidance": "Compact uppercase action with a two-pixel gold underline."
+    },
+    {
+      "name": "Text Field",
+      "snippet": "<label class=\"ds-field\"><span>Name</span><input required name=\"name\" /></label>",
+      "guidance": "Transparent field, ink underline, gold focus, inline error."
+    },
+    {
+      "name": "Header Navigation Link",
+      "snippet": "<a class=\"ds-nav-link\" href=\"/science\">The Science</a>",
+      "guidance": "11px uppercase Jost with 0.16em tracking and visible focus."
+    },
+    {
+      "name": "Glass Panel",
+      "snippet": "<section class=\"ds-glass-panel\" aria-label=\"Product science\">Content</section>",
+      "guidance": "Use only over photography or video, with a solid fallback."
+    },
+    {
+      "name": "Concierge Launcher",
+      "snippet": "<button class=\"ds-concierge-launcher\" aria-expanded=\"false\">Ask the Concierge</button>",
+      "guidance": "A deliberate pill exception with a 44px target and focus restoration."
+    }
+  ],
+  "narrative": {
+    "creativeNorthStar": "The Gilded Laboratory",
+    "personality": "High-end, elegant, refined, assured, and clinical.",
+    "audience": "Wholesale skincare buyers, distributors, and prospective stockists.",
+    "principles": [
+      "Lead with wholesale relevance and make the buyer's next step unmistakable.",
+      "Build confidence through precise product, formulation, packaging, and contact information.",
+      "Express luxury through controlled hierarchy, strong imagery, and deliberate restraint.",
+      "Keep clinical credibility grounded in clear, supportable skincare claims."
+    ],
+    "avoid": [
+      "Generic beauty-store and conventional e-commerce styling",
+      "Discount language and consumer checkout patterns",
+      "Clinical Gold as small text on white",
+      "Arbitrary radii, shadows, gradients, and decorative motion"
+    ]
+  }
+}

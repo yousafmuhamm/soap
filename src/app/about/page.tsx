@@ -8,21 +8,21 @@ import { PRODUCT } from "@/lib/products";
 export const metadata: Metadata = {
   title: "Our House",
   description:
-    "The story of Yeong Won — Fountain of Youth. Why we make one soap, how it is formulated, and the standards behind every 70 g bar.",
+    "The story of Yeong Won, Fountain of Youth. Why we make one soap, how it is formulated, and the standards behind every 70 g bar.",
 };
 
 const PILLARS = [
   {
     title: "One product",
-    body: "We do not make a range. Every hour of formulation, testing and refinement goes into a single bar — so the bar has to earn it.",
+    body: "We do not make a range. Every hour of formulation, testing and refinement goes into a single bar, so the bar has to earn it.",
   },
   {
     title: "Treatment-grade actives",
-    body: "Niacinamide, snail secretion filtrate, plant stem cell culture extract, collagen — ingredients chosen from the serum shelf, not the soap aisle.",
+    body: "Niacinamide, snail secretion filtrate, plant stem cell culture extract and collagen are chosen from the serum shelf, not the soap aisle.",
   },
   {
     title: "Honest claims",
-    body: "The carton says helps, supports, promotes — and means it. No miracle verbs, no before-and-after theatre. The skin decides.",
+    body: "The carton says helps, supports and promotes, and means it. No miracle verbs, no before-and-after theatre. The skin decides.",
   },
 ];
 
@@ -30,7 +30,7 @@ const TIMELINE = [
   {
     n: "01",
     title: "Formulate",
-    body: "The active complex — stem cell culture extract, snail filtrate, niacinamide and collagen — is blended into a palm-soap base with glycerin.",
+    body: "The active complex of stem cell culture extract, snail filtrate, niacinamide and collagen is blended into a palm-soap base with glycerin.",
   },
   {
     n: "02",
@@ -45,7 +45,7 @@ const TIMELINE = [
   {
     n: "04",
     title: "Seal",
-    body: "Bars are sealed individually and boxed in coffrets of ten — a daily ritual, a month at a time.",
+    body: "Bars are sealed individually and boxed in coffrets of ten, supporting a daily ritual one month at a time.",
   },
 ];
 
@@ -78,20 +78,20 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* House story — single text column */}
+      {/* House story - single text column */}
       <section className="mx-auto max-w-2xl px-5 py-24 md:py-32">
         <FadeUp>
           <p className="label mb-8 text-muted">The beginning</p>
           <div className="space-y-6 text-lg leading-relaxed text-ink/85">
             <p>
-              Yeong Won — 영원 — is the Korean word for eternal. The house was
+              Yeong Won (영원) is the Korean word for eternal. The house was
               founded on a simple observation: people invest in serums and
               creams, then undo the work with a cleanser that strips
               everything it touches.
             </p>
             <p>
               So we started where skincare actually starts. One bar, built
-              like a treatment — plant stem cell culture extract for
+              like a treatment, with plant stem cell culture extract for
               resilience, snail filtrate for repair, niacinamide for tone,
               collagen for bounce, oat and milk so the cleanse itself stays
               gentle.
@@ -104,7 +104,7 @@ export default function AboutPage() {
         </FadeUp>
       </section>
 
-      {/* 50/50 split — portrait + pull quote */}
+      {/* 50/50 split - portrait + pull quote */}
       <section className="mx-auto max-w-[1400px] px-5 pb-24 md:px-10 md:pb-32">
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-20">
           <FadeUp className="relative aspect-[4/5] w-full overflow-hidden bg-primary-2">
@@ -126,7 +126,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* The process — numbered vertical timeline */}
+      {/* The process - numbered vertical timeline */}
       <section className="mx-auto max-w-3xl px-5 pb-24 md:pb-32">
         <FadeUp>
           <p className="label mb-3 text-muted">The process</p>
@@ -144,7 +144,7 @@ export default function AboutPage() {
               className="relative flex gap-8 pb-12 last:pb-0"
             >
               <div className="flex flex-col items-center">
-                <span className="font-display text-2xl leading-none text-primary">
+                <span className="font-display text-2xl leading-none text-primary-ink">
                   {step.n}
                 </span>
                 {i < TIMELINE.length - 1 && (
@@ -160,11 +160,11 @@ export default function AboutPage() {
         </ol>
       </section>
 
-      {/* Standards — three columns in the pale band */}
+      {/* Standards - three columns in the pale band */}
       <section className="bg-primary-2 px-5 py-24 md:px-10 md:py-32">
         <div className="mx-auto max-w-[1400px]">
           <FadeUp>
-            <p className="label mb-3 text-muted">What we stand on</p>
+            <p className="label mb-3 text-ink/70">What we stand on</p>
             <h2 className="max-w-2xl font-display text-4xl leading-tight md:text-5xl">
               Three rules, no exceptions.
             </h2>

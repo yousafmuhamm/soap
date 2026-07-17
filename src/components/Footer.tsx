@@ -5,7 +5,7 @@ import { FOOTER_NAV, SITE, SOCIALS } from "@/lib/site";
 
 /**
  * Four-column footer: newsletter + three link groups, hairline top border,
- * tiny uppercase labels. Server component — the only interactive part is the
+ * tiny uppercase labels. Server component - the only interactive part is the
  * newsletter input.
  */
 export default function Footer() {
@@ -24,9 +24,30 @@ export default function Footer() {
             <div className="mt-8">
               <NewsletterInput />
             </div>
+
+            {/* House contact details */}
+            <address className="mt-8 space-y-1 text-sm not-italic text-muted">
+              {SITE.address.lines.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
+              <a
+                href={`tel:${SITE.phone.tel}`}
+                className="mt-2 block text-ink transition-opacity hover:opacity-60"
+              >
+                {SITE.phone.display}
+              </a>
+              <a
+                href={`mailto:${SITE.email}`}
+                className="block text-ink transition-opacity hover:opacity-60"
+              >
+                {SITE.email}
+              </a>
+            </address>
           </div>
 
-          {/* Columns 2–4: link groups */}
+          {/* Columns 2-4: link groups */}
           {FOOTER_NAV.map((group) => (
             <nav key={group.heading} aria-label={group.heading}>
               <p className="label mb-5 text-muted">{group.heading}</p>

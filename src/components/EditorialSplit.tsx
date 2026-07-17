@@ -24,10 +24,10 @@ export default function EditorialSplit() {
         <FadeUp index={1} className="max-w-md">
           <p className="label mb-8 text-muted">Fountain of Youth</p>
           <h2 className="font-display text-4xl leading-tight md:text-5xl">
-            Skin that looks the way it feels — rested.
+            Skin that looks the way it feels: rested.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted">
-            Renewal isn&rsquo;t a promise on a jar — it&rsquo;s a habit. A bar
+            Renewal isn&rsquo;t a promise on a jar. It&rsquo;s a habit. A bar
             that treats while it cleanses.
           </p>
           <Link

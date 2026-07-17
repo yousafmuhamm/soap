@@ -93,7 +93,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={pending}
-        className="label bg-ink px-10 py-4 text-white transition-colors hover:bg-primary hover:text-ink disabled:opacity-50"
+        className="label min-h-11 bg-ink px-10 py-4 text-white transition-colors hover:bg-primary hover:text-ink disabled:cursor-wait disabled:opacity-50"
       >
         {pending ? "Sending…" : "Send"}
       </button>
@@ -135,9 +135,12 @@ function Field({
           type={type}
           autoComplete={autoComplete}
           defaultValue={defaultValue}
+          required
+          aria-required="true"
+          maxLength={type === "email" ? 200 : 120}
           aria-invalid={error ? true : undefined}
           aria-describedby={error ? `${name}-error` : undefined}
-          className="w-full bg-transparent py-2 text-base text-ink focus:outline-none"
+          className="w-full bg-transparent py-2 text-base text-ink"
         />
       </div>
       {error && (
@@ -172,9 +175,11 @@ function SelectField({
           name={name}
           value={value}
           onChange={(e) => setValue(e.target.value)}
+          required
+          aria-required="true"
           aria-invalid={error ? true : undefined}
           aria-describedby={error ? `${name}-error` : undefined}
-          className="w-full appearance-none bg-transparent py-2 text-base text-ink focus:outline-none"
+          className="w-full appearance-none bg-transparent py-2 text-base text-ink"
         >
           {SUBJECT_OPTIONS.map((o) => (
             <option key={o.value} value={o.value}>
@@ -217,9 +222,12 @@ function TextareaField({
           name={name}
           rows={4}
           defaultValue={defaultValue}
+          required
+          aria-required="true"
+          maxLength={2000}
           aria-invalid={error ? true : undefined}
           aria-describedby={error ? `${name}-error` : undefined}
-          className="w-full resize-none bg-transparent py-2 text-base text-ink focus:outline-none"
+          className="w-full resize-none bg-transparent py-2 text-base text-ink"
         />
       </div>
       {error && (
