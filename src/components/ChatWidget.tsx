@@ -33,6 +33,15 @@ interface Msg {
 
 type Mode = "chat" | "lead";
 
+/**
+ * Near-opaque warm-dark surface for the widget's own panels. The shared
+ * `.glass-dark` utility is only 35% opaque — right for floating over the site's
+ * dark hero/video, but it washes out to unreadable light grey over white
+ * sections. This keeps the frosted blur + gold hairline while guaranteeing the
+ * cream text stays legible over ANY page background.
+ */
+const SURFACE = "rgba(18,16,13,0.95)";
+
 let idSeq = 0;
 const nextId = () => `m${++idSeq}`;
 
@@ -182,7 +191,7 @@ export default function ChatWidget() {
             {/* Little glass text bubble */}
             <span
               className="glass-dark label inline-block px-4 py-2.5 text-white/90 transition-opacity group-hover:text-white"
-              style={{ borderRadius: "9999px" }}
+              style={{ borderRadius: "9999px", background: SURFACE }}
             >
               Ask the Concierge
             </span>
@@ -190,7 +199,7 @@ export default function ChatWidget() {
             {/* Circular glass bubble with the concierge icon */}
             <span
               className="glass-dark flex h-14 w-14 items-center justify-center transition-transform group-hover:scale-105"
-              style={{ borderRadius: "9999px" }}
+              style={{ borderRadius: "9999px", background: SURFACE }}
             >
               <ConciergeGlyph />
             </span>
@@ -209,6 +218,7 @@ export default function ChatWidget() {
             aria-label={`${SITE.name} Concierge`}
             tabIndex={-1}
             className="glass-dark fixed bottom-0 right-0 z-50 flex h-[85dvh] w-full flex-col text-white sm:bottom-6 sm:right-6 sm:h-[560px] sm:w-[400px] md:bottom-8 md:right-8"
+            style={{ background: SURFACE }}
             initial={
               reduce ? { opacity: 0 } : { opacity: 0, y: 24, scale: 0.98 }
             }
