@@ -3,7 +3,7 @@
  * delivers it to the house inbox via the shared mailer.
  */
 
-import { sendLeadEmail } from "@/lib/mailer";
+import { sendLeadEmail, titleCase } from "@/lib/mailer";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const INTERESTS = new Set(["general", "stockist", "wholesale", "press"]);
@@ -44,14 +44,15 @@ export async function POST(req: Request) {
 
   const delivered = await sendLeadEmail({
     subject: `New concierge lead (${interest}) - ${name}`,
+    heading: "New concierge lead",
     replyTo: email,
-    lines: [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      `Interest: ${interest}`,
-      `Received: ${new Date().toISOString()}`,
-      ...(context ? ["", "Chat context:", context] : []),
+    fields: [
+      ["Name", name],
+      ["Email", email],
+      ["Interest", titleCase(interest)],
+      ["Source", "Concierge chat"],
     ],
+    ...(context ? { blocks: [{ title: "Chat context", body: context }] } : {}),
   });
 
   if (!delivered) {

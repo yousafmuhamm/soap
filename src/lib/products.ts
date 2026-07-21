@@ -8,6 +8,9 @@ export interface ProductImage {
   /** Path under /public. */
   src: string;
   alt: string;
+  /** Native pixel dimensions - set to render at original aspect ratio, uncropped. */
+  width?: number;
+  height?: number;
 }
 
 export interface KeyIngredient {
@@ -135,6 +138,8 @@ export const PRODUCT = {
     sachet: {
       src: "/images/product/sachets.png",
       alt: "Front and back of the black-and-gold Stemcell Soap sachet on marble",
+      width: 1536,
+      height: 1024,
     },
     /** Cream bar upright on a marble plinth in warm light and steam - hero still. */
     barDark: {

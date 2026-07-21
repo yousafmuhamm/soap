@@ -13,7 +13,9 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-line bg-bg">
-      <div className="mx-auto max-w-[1400px] px-5 py-16 md:px-10 md:py-20">
+      {/* Extra bottom padding clears the floating concierge launcher so it
+          never overlaps the social/legal row at the very bottom of the page. */}
+      <div className="mx-auto max-w-[1400px] px-5 pb-28 pt-16 md:px-10 md:pb-28 md:pt-20">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-4">
           {/* Column 1: brand + newsletter */}
           <div className="col-span-2 md:col-span-1">

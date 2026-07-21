@@ -56,31 +56,45 @@ export default function ProductPage() {
       <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16">
         {/* Left: stacked image column */}
         <div className="flex flex-col gap-4 md:gap-6">
-          {GALLERY.map((img, i) => (
-            <div
-              key={img.src}
-              className="relative aspect-[4/5] w-full overflow-hidden bg-primary-2"
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                priority={i === 0}
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-              />
-              {/* Wholesale spec chip on the lead packshot. */}
-              {i === 0 && (
-                <div className="glass absolute bottom-5 left-5 flex flex-wrap gap-x-6 gap-y-1 px-6 py-4">
-                  <span className="label text-ink">{PRODUCT.netContent.bar} bar</span>
-                  <span className="label text-ink">{PRODUCT.netContent.box}</span>
-                  <span className="label text-ink">
-                    {PRODUCT.inci.length} ingredients
-                  </span>
-                </div>
-              )}
-            </div>
-          ))}
+          {GALLERY.map((img, i) =>
+            img.width && img.height ? (
+              // Rendered at its native aspect ratio - no crop.
+              <div key={img.src} className="relative w-full bg-primary-2">
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  width={img.width}
+                  height={img.height}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="h-auto w-full"
+                />
+              </div>
+            ) : (
+              <div
+                key={img.src}
+                className="relative aspect-[4/5] w-full overflow-hidden bg-primary-2"
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  priority={i === 0}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                />
+                {/* Wholesale spec chip on the lead packshot. */}
+                {i === 0 && (
+                  <div className="glass absolute bottom-5 left-5 flex flex-wrap gap-x-6 gap-y-1 px-6 py-4">
+                    <span className="label text-ink">{PRODUCT.netContent.bar} bar</span>
+                    <span className="label text-ink">{PRODUCT.netContent.box}</span>
+                    <span className="label text-ink">
+                      {PRODUCT.inci.length} ingredients
+                    </span>
+                  </div>
+                )}
+              </div>
+            )
+          )}
         </div>
 
         {/* Right: sticky info panel */}

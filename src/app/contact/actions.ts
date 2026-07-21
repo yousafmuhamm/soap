@@ -1,13 +1,13 @@
 "use server";
 
 import type { ContactState } from "./types";
-import { sendLeadEmail } from "@/lib/mailer";
+import { sendLeadEmail, titleCase } from "@/lib/mailer";
 
 /**
- * Contact form server action. v1 validates and logs; email delivery is wired
- * post-launch and is isolated to this one file (§4.1 D8 - swap the log for a
- * Resend/Formspree call). A "use server" module may only export async
- * functions, so the shared state type/constant live in ./types.
+ * Contact form server action. Validates the enquiry and hands it to the shared
+ * mailer (EmailJS), which delivers to the house inbox. A "use server" module
+ * may only export async functions, so the shared state type/constant live in
+ * ./types.
  */
 
 const SUBJECTS = ["general", "stockist", "wholesale", "press"] as const;
@@ -56,16 +56,16 @@ export async function submitContact(
   // Deliver to the house inbox. If delivery is not configured or fails, keep
   // the visitor's values and return a recoverable error.
   const delivered = await sendLeadEmail({
-    subject: `New enquiry (${subject}) - ${name}`,
+    subject: `New ${subject} enquiry - ${name}`,
+    heading: `New ${subject} enquiry`,
     replyTo: email,
-    lines: [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      `Subject: ${subject}`,
-      "",
-      "Message:",
-      message,
+    fields: [
+      ["Name", name],
+      ["Email", email],
+      ["Subject", titleCase(subject)],
+      ["Source", "Contact form"],
     ],
+    blocks: [{ title: "Message", body: message }],
   });
 
   if (!delivered) {
